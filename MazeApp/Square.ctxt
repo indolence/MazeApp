@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=row\ col\ type
+comment0.target=Square(int,\ int,\ int)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ Square\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment1.text=\r\n\ toString\r\n\ @return\ -\ print\ type\ of\ current\ square\r\n
+comment2.params=
+comment2.target=int\ getRow()
+comment2.text=\r\n\ getRow\r\n\ @return\ row\ of\ current\ square\r\n
+comment3.params=
+comment3.target=int\ getCol()
+comment3.text=\r\n\ get\ Col\r\n\ @return\ column\ of\ current\ square\r\n
+comment4.params=
+comment4.target=int\ getType()
+comment4.text=\r\n\ getType\r\n\ @return\ type\ of\ current\ square\r\n
+numComments=5

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Maze()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Maze\r\n
+comment1.params=fname
+comment1.target=boolean\ loadMaze(java.lang.String)
+comment1.text=\r\n\ Loads\ the\ maze\ from\ the\ specified\ file\r\n\r\n\ @param\ \ fname\ \ the\ name\ of\ the\ file\ containing\ the\ maze\ to\ be\ loaded\r\n\ @return\ \ \ \ true\ if\ the\ maze\ was\ successfully\ loaded;\ otherwise,\ false\r\n
+comment2.params=sq
+comment2.target=java.util.ArrayList\ getNeighbors(Square)
+comment2.text=\r\n\ Returns\ a\ list\ of\ the\ neighbors\ of\ the\ specified\ square\r\n\r\n\ @param\ \ sq\ \ the\ square\ whose\ neighbors\ to\ return\r\n\ @return\ \ \ \ a\ list\ of\ the\ neighbors\ of\ the\ specified\ square\r\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\r\n\ toString\r\n\r\n\ @return\ \ \ \ string\ representation\ of\ the\ maze\r\n
+numComments=4
