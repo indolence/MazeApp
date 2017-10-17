@@ -24,7 +24,7 @@ public class Square
     public Square(int row, int col, int type)
     {
         this.row = row;
-        this.col = col;
+        this.col = col;// set sata types
         this.type = type;               
     }
     
@@ -35,13 +35,13 @@ public class Square
     public String toString(){
         
         switch (this.type){
-            case 10: return "_";
-            case 11: return "o";
-            case 12: return "-";
-            case 13: return "x";
-            case 1: return "#";
-            case 2: return "S";
-            case 3: return "E";
+            case 0: return "_"; // return empty space
+            case 11: return "o"; // return on work list
+            case 12: return "-"; // return explored
+            case 13: return "x"; // return on path
+            case 1: return "#"; // return wall
+            case 2: return "S"; //return start
+            case 3: return "E"; // return exit
         }
         return "What?";               
     }
@@ -51,7 +51,7 @@ public class Square
      * @return row of current square
      */
     public int getRow(){
-        return this.row;
+        return this.row; // return row
     }
     
     /**
@@ -59,7 +59,7 @@ public class Square
      * @return column of current square
      */
     public int getCol(){
-        return this.col;
+        return this.col; // return col
     }
     
     /**
@@ -67,7 +67,7 @@ public class Square
      * @return type of current square
      */
     public int getType(){
-        return this.type;
+        return this.type; // return type
     }
 
     
