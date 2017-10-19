@@ -28,6 +28,8 @@ public class Maze
         testMaze.loadMaze();    //TESTER
         System.out.print(testMaze); //TESTER
         System.out.print(testMaze.getNeighbors(testMaze.maze[0][0]));   //TESTER
+        System.out.print(testMaze.getStart());
+        System.out.print(testMaze.getEnd());
         
     }
     
@@ -107,8 +109,10 @@ public class Maze
         toReturn = null; //refresh toReturn square to make sure there are no weird results from previous calls
         for (int row=0; row < numRows; row++) {
             for (int col=0; col < numCols; col++) {       // loop through maze         
-                if(maze[row][col].getType() == 2) // if type = 2 (start), true
-                    toReturn = maze[row][col];  // if true, set this square to the return
+                if(maze[row][col].getType() == 2){// if type = 2 (start), true
+                    toReturn = maze[row][col];
+                    // if true, set this square to the return
+                }
             }
         }
         return toReturn; // return square
@@ -125,8 +129,9 @@ public class Maze
         toReturn = null; // reset square to prevent screwy results from previous calls
         for (int row=0; row < numRows; row++) {
             for (int col=0; col < numCols; col++) {      // loop through maze          
-                if(maze[row][col].getType() == 3) // if type = 3 (exit), true
-                    toReturn = maze[row][col]; // if true set square to return
+                if(maze[row][col].getType() == 3){ // if type = 3 (exit), true
+                    toReturn = maze[row][col]; // if true set square to return                 
+                }
             }
         }
         return toReturn;
