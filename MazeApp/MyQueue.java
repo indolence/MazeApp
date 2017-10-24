@@ -13,8 +13,10 @@ public class MyQueue<T> implements QueueADT<T>
 {
     LinkedList<T> queue = new LinkedList<>();
     Node node = new Node();
+    Node temp = new Node();
     private Node first;
     private Node last;
+    int counter;
 
     /**
      * Default constructor for objects of class MyQueue
@@ -72,7 +74,15 @@ public class MyQueue<T> implements QueueADT<T>
      * @return the number of items in the queue
      */
     public int size(){
-        int counter;
+        counter = 0;
+        temp = first;
+        if(isEmpty()){ // checks to see if empty and if it is thows exception
+          return 0;
+        } 
+        while (temp.next != null){
+            counter++;
+            temp = temp.next;
+        }
         return counter;
     }
     
@@ -91,12 +101,13 @@ public class MyQueue<T> implements QueueADT<T>
      * Clear out the data structure
      */
     public void clear(){
+        queue = new LinkedList<>();
     }
 
 }
 
-//Class Node
-   class Node{
-       public Object data;
-       public Node next;
-    }
+    //Class Node
+ class Node{
+    public Object data;
+    public Node next;
+ }

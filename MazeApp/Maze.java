@@ -84,18 +84,25 @@ public class Maze
     {
         
         ArrayList<Square> toReturn = new ArrayList(); //creatre arrayList to return
-        if (sq.getRow()-1 >= 0) // test north
-            toReturn.add(maze[sq.getRow()-1][sq.getCol()]); // if true add north to array
+        if (sq.getRow()-1 >= 0) {// test north
+            if (maze[sq.getRow()-1][sq.getCol()].getType() == 0) // only adds if unexplored
+                toReturn.add(maze[sq.getRow()-1][sq.getCol()]); // if true add north to array
+        }
             
-        if (sq.getCol()+1 <= numCols)   // test east
-            toReturn.add(maze[sq.getRow()][sq.getCol()+1]); // if true add east to array
+        if (sq.getCol()+1 <= numCols) {  // test east
+            if (maze[sq.getRow()][sq.getCol()+1].getType() == 0)
+                toReturn.add(maze[sq.getRow()][sq.getCol()+1]); // if true add east to array           
+        }
             
-        if (sq.getRow() <= numRows )    // test south
-            toReturn.add(maze[sq.getRow()+1][sq.getCol()]);     //if true add south to array
-            
-        if (sq.getCol()-1 >= 0) // test west
-            toReturn.add(maze[sq.getRow()][sq.getCol()-1]); // if true add west to array
-            
+        if (sq.getRow()+1 <= numRows ) {   // test south
+            if (maze[sq.getRow()+1][sq.getCol()].getType() == 0)
+                toReturn.add(maze[sq.getRow()+1][sq.getCol()]);     //if true add south to array
+        }
+           
+        if (sq.getCol()-1 >= 0) { // test west    
+            if (maze[sq.getRow()][sq.getCol()-1].getType() == 0)
+                toReturn.add(maze[sq.getRow()][sq.getCol()-1]); // if true add west to array
+        }  
         return toReturn; // return array
     }
 
