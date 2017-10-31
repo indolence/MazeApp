@@ -18,13 +18,15 @@ public class Square
     public static final int START = 2;
     public static final int EXIT = 3;
     
+    private Square previous;
+    
     /**
      * Default constructor for objects of class Square
      */
     public Square(int row, int col, int type)
     {
         this.row = row;
-        this.col = col;// set sata types
+        this.col = col; // set data types
         this.type = type;               
     }
     
@@ -68,6 +70,22 @@ public class Square
      */
     public int getType(){
         return this.type; // return type
+    }
+    
+    /**
+     * setType
+     * @modifies current square type
+     */
+    public void setType(int newType){
+        type = newType; // return type
+    }
+    
+    public void setPrev(Square sq){ // sets previous square
+        previous = sq;
+    }
+    
+    public Square previous(){ // returns previous
+        return previous;
     }
 
     

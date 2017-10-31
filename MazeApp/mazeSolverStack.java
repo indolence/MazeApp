@@ -14,7 +14,7 @@ public class mazeSolverStack extends MazeSolver
     /**
      * Default constructor for objects of class mazeSolverStack
      */
-    public mazeSolverStack()
+    public mazeSolverStack(Maze maze)
     {
         super(maze);
     }
@@ -25,11 +25,11 @@ public class mazeSolverStack extends MazeSolver
     
     public void makeEmpty()
     {
-        stack.empty();
+        stack = new MyStack();
     }
     
     public Square next(){
-        return stack.remove();
+        return stack.pop();
     }
     
     public boolean isEmpty(){

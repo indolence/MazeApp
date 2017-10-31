@@ -8,12 +8,13 @@
  */
 public class mazeSolverQueue extends MazeSolver
 {
-    MyQueue<Square> queue;
+    public MyQueue<Square> queue;
+    Maze maze = new Maze();
     
     /**
      * Default constructor for objects of class mazeSolverQueue
      */
-    public mazeSolverQueue()
+    public mazeSolverQueue(Maze maze)
     {
         super(maze);
     }
@@ -24,7 +25,7 @@ public class mazeSolverQueue extends MazeSolver
     
     public void makeEmpty()
     {
-        queue.empty();
+        queue = new MyQueue();
     }
     
     public Square next(){

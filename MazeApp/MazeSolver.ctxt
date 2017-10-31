@@ -11,6 +11,7 @@ comment4.params=
 comment4.target=Square\ next()
 comment5.params=
 comment5.target=boolean\ isSolved()
+comment5.text=\r\n\ Goes\ through\ the\ maze\ backwards\ to\ determine\ if\ the\ path\ has\ been\ completed\r\n
 comment6.params=
 comment6.target=java.lang.String\ getPath()
 comment7.params=

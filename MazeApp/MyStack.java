@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
  */
 public class MyStack<T> implements StackADT<T>
 {
-    private ArrayList<T> stack;
+    public  ArrayList<T> stack;
     T toReturn;
 
     /**
@@ -83,7 +83,7 @@ public class MyStack<T> implements StackADT<T>
      */
     public void clear()
     {
-        this.stack.clear();
+         this.stack.clear();
     }
 
     public String toString()

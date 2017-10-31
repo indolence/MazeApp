@@ -21,16 +21,11 @@ public class Maze
     int newType = 0;
     Scanner in = null;
     Square toReturn;
+    Square start;
+    Square end;
     
     public static void main(String[] args) throws FileNotFoundException{
-        
-        Maze testMaze = new Maze(); //TESTER
-        testMaze.loadMaze();    //TESTER
-        System.out.print(testMaze); //TESTER
-        System.out.print(testMaze.getNeighbors(testMaze.maze[0][0]));   //TESTER
-        System.out.print(testMaze.getStart());
-        System.out.print(testMaze.getEnd());
-        
+
     }
     
     /**
@@ -48,14 +43,12 @@ public class Maze
      * @param  fname  the name of the file containing the maze to be loaded
      * @return    true if the maze was successfully loaded; otherwise, false
      */
-    public boolean loadMaze() throws FileNotFoundException
+    public boolean loadMaze(String FileName) throws FileNotFoundException
     {
         
-        JFileChooser filepicker = new JFileChooser();   // create file picker
-        if (filepicker.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)     // make sure valid file
-             load = filepicker.getSelectedFile(); // select file to load
-             
-        Scanner mazeIter = new Scanner(load);   // create iterator for maze 
+        try{
+        
+        Scanner mazeIter = new Scanner(new File(FileName));   // create iterator for maze 
         numRows = Integer.parseInt(mazeIter.next());    // set rows to first int in maze file
         numCols = Integer.parseInt(mazeIter.next());    // set columns to 2nd int in maze file
         
@@ -66,11 +59,17 @@ public class Maze
             for (int col=0; col < numCols; col++) {                
                 maze[row][col] = new Square(row, col, Integer.parseInt(mazeIter.next())); // populate maze
                 backupMaze[row][col] = maze[row][col];  //populate backupMaze
+                if (maze[row][col].getType() == 3)
+                    end = maze[row][col];
+                if (maze[row][col].getType() == 2)
+                    start = maze[row][col];
             }
         }
+        }
+      catch (FileNotFoundException e){
+           return false; }
              
-        return true; // return true once maze is loaded
-             
+      return true; // return true once maze is loaded             
             }
         
 
@@ -85,22 +84,22 @@ public class Maze
         
         ArrayList<Square> toReturn = new ArrayList(); //creatre arrayList to return
         if (sq.getRow()-1 >= 0) {// test north
-            if (maze[sq.getRow()-1][sq.getCol()].getType() == 0) // only adds if unexplored
+            if (maze[sq.getRow()-1][sq.getCol()].getType() == 0 || maze[sq.getRow()-1][sq.getCol()].getType() == 3) // only adds if unexplored
                 toReturn.add(maze[sq.getRow()-1][sq.getCol()]); // if true add north to array
         }
             
         if (sq.getCol()+1 <= numCols) {  // test east
-            if (maze[sq.getRow()][sq.getCol()+1].getType() == 0)
+            if (maze[sq.getRow()][sq.getCol()+1].getType() == 0 || maze[sq.getRow()][sq.getCol()+1].getType() == 3)
                 toReturn.add(maze[sq.getRow()][sq.getCol()+1]); // if true add east to array           
         }
             
         if (sq.getRow()+1 <= numRows ) {   // test south
-            if (maze[sq.getRow()+1][sq.getCol()].getType() == 0)
+            if (maze[sq.getRow()+1][sq.getCol()].getType() == 0 || maze[sq.getRow()+1][sq.getCol()].getType() == 3)
                 toReturn.add(maze[sq.getRow()+1][sq.getCol()]);     //if true add south to array
         }
            
         if (sq.getCol()-1 >= 0) { // test west    
-            if (maze[sq.getRow()][sq.getCol()-1].getType() == 0)
+            if (maze[sq.getRow()][sq.getCol()-1].getType() == 0 || maze[sq.getRow()][sq.getCol()-1].getType() == 3)
                 toReturn.add(maze[sq.getRow()][sq.getCol()-1]); // if true add west to array
         }  
         return toReturn; // return array
@@ -113,16 +112,7 @@ public class Maze
      */
     public Square getStart()
     {
-        toReturn = null; //refresh toReturn square to make sure there are no weird results from previous calls
-        for (int row=0; row < numRows; row++) {
-            for (int col=0; col < numCols; col++) {       // loop through maze         
-                if(maze[row][col].getType() == 2){// if type = 2 (start), true
-                    toReturn = maze[row][col];
-                    // if true, set this square to the return
-                }
-            }
-        }
-        return toReturn; // return square
+        return start;
     }    
 
 
@@ -133,15 +123,7 @@ public class Maze
      */
     public Square getEnd()
     {
-        toReturn = null; // reset square to prevent screwy results from previous calls
-        for (int row=0; row < numRows; row++) {
-            for (int col=0; col < numCols; col++) {      // loop through maze          
-                if(maze[row][col].getType() == 3){ // if type = 3 (exit), true
-                    toReturn = maze[row][col]; // if true set square to return                 
-                }
-            }
-        }
-        return toReturn;
+        return end;
     }   
 
 
@@ -179,5 +161,31 @@ public class Maze
 
         return new String( sb );
     }
-
+    
+    /**
+     * return numRows
+     *
+     * @return numRows
+     */
+    public int getRows()
+    {
+        return numRows;
+    }
+    
+    /**
+     * return numCols
+     *
+     * @return numCols
+     */
+    public int getCols()
+    {
+        return numCols;
+    }
+    
+    /**
+     * return the maze array
+     */
+    public Square[][] getMaze(){
+        return maze;
+    }
 }

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=maze
+comment0.target=mazeSolverStack(Maze)
+comment0.text=\r\n\ Default\ constructor\ for\ objects\ of\ class\ mazeSolverStack\r\n
+comment1.params=sq
+comment1.target=void\ add(Square)
+comment2.params=
+comment2.target=void\ makeEmpty()
+comment3.params=
+comment3.target=Square\ next()
+comment4.params=
+comment4.target=boolean\ isEmpty()
+numComments=5
