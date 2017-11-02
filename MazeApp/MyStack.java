@@ -26,7 +26,7 @@ public class MyStack<T> implements StackADT<T>
      * @param item the data item to add (of type T)
      */
     public void push(T toAdd){        
-        this.stack.add(0, toAdd);
+        this.stack.add(toAdd);
     }
 
     /**

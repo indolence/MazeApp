@@ -8,8 +8,8 @@
  */
 public class mazeSolverStack extends MazeSolver
 {
-    MyStack<Square> stack = new MyStack();
-    Maze maze = new Maze();
+    public static MyStack<Square> stack = new MyStack();
+    private Maze maze = new Maze();
     
     /**
      * Default constructor for objects of class mazeSolverStack
@@ -20,7 +20,7 @@ public class mazeSolverStack extends MazeSolver
     }
     
     public void add(Square sq) {
-       stack.push(sq);
+       stack.push(sq);       
     }
     
     public void makeEmpty()
@@ -35,5 +35,6 @@ public class mazeSolverStack extends MazeSolver
     public boolean isEmpty(){
         return stack.isEmpty();
     }
+    
 
 }

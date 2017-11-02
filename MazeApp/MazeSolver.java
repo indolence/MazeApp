@@ -20,9 +20,9 @@ public abstract class MazeSolver
         
     MazeSolver(Maze newMaze){
         this.maze = newMaze;
-        this.solved = false;
+        solved = false;
         this.makeEmpty();
-        this.add(this.maze.getStart());
+        this.add(maze.getStart());
     }
     
     abstract void makeEmpty();    
@@ -74,17 +74,18 @@ public abstract class MazeSolver
          * The neighbors themselves are not "explored" until they are removed from the worklist and checked for their neighbors.
          */
         // check if the maze cannot be solved
+        //if (this == this.stack
         if(this.isEmpty())
         {  System.out.println("Step is running true empty ");
-            return null; // tests as false in isSolved
+           return null; // tests as false in isSolved
         }
-        Square forStep = this.next();       // set next square     
+        Square forStep = this.next();  // set next square     
         if (forStep.getType() == 3){ // test if finsih, return if true
             return forStep;
         }
         
         if(forStep != null){
-            System.out.println("forStep is not null");
+         System.out.println("forStep is not null");
          for(Square sq : maze.getNeighbors(forStep)){ // goes through neighbors of current square
              sq.setPrev(forStep); // sets previous to last square
              if(sq.getType() == 3)
