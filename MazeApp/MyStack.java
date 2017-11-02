@@ -73,9 +73,7 @@ public class MyStack<T> implements StackADT<T>
      */
     public boolean isEmpty()
     {
-        if(this.stack.size() == 0)
-            return true;
-        return false;
+        return stack.size() == 0;        
     }
 
     /**

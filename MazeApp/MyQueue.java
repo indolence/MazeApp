@@ -91,10 +91,7 @@ public class MyQueue<T> implements QueueADT<T>
      * @return true if the size is 0, false otherwise
      */
     public boolean isEmpty(){
-        if (first == null)
-            return true;
-            
-        return false;
+        return first == null;
     }
     
     /**

@@ -11,7 +11,6 @@ public abstract class MazeSolver
     Maze maze;
     boolean solved;
     String getPathSTR;
-    Square forStep;
     Square[][] goThrough;
     //You're doing it wrong
     //Please go away
@@ -23,7 +22,7 @@ public abstract class MazeSolver
         this.maze = newMaze;
         this.solved = false;
         this.makeEmpty();
-        this.add(this.maze.getStart() );
+        this.add(this.maze.getStart());
     }
     
     abstract void makeEmpty();    
@@ -57,9 +56,10 @@ public abstract class MazeSolver
                      if (goThrough[x][y].getType() == 6)
                         getPathSTR += ("["+ x +", " + y + "]"); // add coordinate to  path
                                          }                                   
-                                        }
+                                       }
+             return getPathSTR;
         }
-        return getPathSTR;
+        return "Can't be solved";
         }
 
     Square step(){
@@ -75,15 +75,16 @@ public abstract class MazeSolver
          */
         // check if the maze cannot be solved
         if(this.isEmpty())
-        {
+        {  System.out.println("Step is running true empty ");
             return null; // tests as false in isSolved
         }
-        forStep = next();       // set next square     
+        Square forStep = this.next();       // set next square     
         if (forStep.getType() == 3){ // test if finsih, return if true
             return forStep;
         }
         
         if(forStep != null){
+            System.out.println("forStep is not null");
          for(Square sq : maze.getNeighbors(forStep)){ // goes through neighbors of current square
              sq.setPrev(forStep); // sets previous to last square
              if(sq.getType() == 3)

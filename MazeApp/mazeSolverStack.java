@@ -33,9 +33,7 @@ public class mazeSolverStack extends MazeSolver
     }
     
     public boolean isEmpty(){
-        if (stack.isEmpty())
-            return true;
-        return false;
+        return stack.isEmpty();
     }
 
 }
