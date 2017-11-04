@@ -76,7 +76,7 @@ public abstract class MazeSolver
         // check if the maze cannot be solved
         //if (this == this.stack
         if(this.isEmpty())
-        {  System.out.println("Step is running true empty ");
+        {  
            return null; // tests as false in isSolved
         }
         Square forStep = this.next();  // set next square     
@@ -85,13 +85,13 @@ public abstract class MazeSolver
         }
         
         if(forStep != null){
-         System.out.println("forStep is not null");
+         
          for(Square sq : maze.getNeighbors(forStep)){ // goes through neighbors of current square
              sq.setPrev(forStep); // sets previous to last square
              if(sq.getType() == 3)
                 return forStep; //return end
              else{
-                System.out.println("Step is running");
+                
                 sq.setType(11);//sets to on worklist
                 add(sq); //adds square to the worklist in maze
                     }

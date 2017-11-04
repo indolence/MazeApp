@@ -15,7 +15,7 @@ public class Maze
 {
     private Square[][] maze;
     private Square[][] backupMaze;
-    File load;
+    String FileName;
     int numRows = 0;
     int numCols = 0;   
     int newType = 0;
@@ -45,7 +45,7 @@ public class Maze
      */
     public boolean loadMaze(String FileName) throws FileNotFoundException
     {
-        
+      this.FileName = FileName;
         try{
         
         Scanner mazeIter = new Scanner(new File(FileName));   // create iterator for maze 
@@ -133,10 +133,25 @@ public class Maze
      */
     public void reset()
     {
+        try{ // reload entire maze to reset
+        
+        Scanner mazeIter = new Scanner(new File(FileName));   // create iterator for maze 
+        numRows = Integer.parseInt(mazeIter.next());    // set rows to first int in maze file
+        numCols = Integer.parseInt(mazeIter.next());    // set columns to 2nd int in maze file
+        
+        this.maze = new Square[numRows][numCols];   // initialize maze
+        
         for (int row=0; row < numRows; row++) {
-            for (int col=0; col < numCols; col++) {   //loop through maze             
-                maze[row][col] = backupMaze[row][col];  // set each square equal to corresponding square in backup          
+            for (int col=0; col < numCols; col++) {                
+                maze[row][col] = new Square(row, col, Integer.parseInt(mazeIter.next())); // populate maze
+                if (maze[row][col].getType() == 3)
+                    end = maze[row][col];
+                if (maze[row][col].getType() == 2)
+                    start = maze[row][col];
             }
+        }
+        }
+      catch (FileNotFoundException e){
         }
     }
 
