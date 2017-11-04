@@ -10,7 +10,7 @@ public abstract class MazeSolver
 {
     Maze maze;
     boolean solved;
-    String getPathSTR;
+    String getPathSTR = "";
     Square[][] goThrough;
     //You're doing it wrong
     //Please go away
@@ -53,7 +53,7 @@ public abstract class MazeSolver
         if (isSolved()){
              for (int x = 0; x < maze.getRows();  x++){ // go through rwos
                  for (int y = 0; y < maze.getCols(); y++){ // go through cols
-                     if (goThrough[x][y].getType() == 6)
+                     if (goThrough[x][y].getType() == 13)
                         getPathSTR += ("["+ x +", " + y + "]"); // add coordinate to  path
                                          }                                   
                                        }

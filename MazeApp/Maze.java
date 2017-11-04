@@ -88,12 +88,12 @@ public class Maze
                 toReturn.add(maze[sq.getRow()-1][sq.getCol()]); // if true add north to array
         }
             
-        if (sq.getCol()+1 <= numCols) {  // test east
+        if (sq.getCol()+1 < numCols) {  // test east
             if (maze[sq.getRow()][sq.getCol()+1].getType() == 0 || maze[sq.getRow()][sq.getCol()+1].getType() == 3)
                 toReturn.add(maze[sq.getRow()][sq.getCol()+1]); // if true add east to array           
         }
             
-        if (sq.getRow()+1 <= numRows ) {   // test south
+        if (sq.getRow()+1 < numRows ) {   // test south
             if (maze[sq.getRow()+1][sq.getCol()].getType() == 0 || maze[sq.getRow()+1][sq.getCol()].getType() == 3)
                 toReturn.add(maze[sq.getRow()+1][sq.getCol()]);     //if true add south to array
         }
